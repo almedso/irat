@@ -5,6 +5,22 @@ multilingual = false
 src = "src"
 title = "InfraRed Arbitrary Toolbox"
 
+
+[preprocessor.index]
+
+[preprocessor.links]
+
 [output.html]
 git-repository-url = "https://github.com/almedso/irat"
 git-repository-icon = "fa-github"
+default-theme = "light"
+preferred-dark-theme = "navy"
+curly-quotes = true
+input-404 = "404.md"
+
+[output.html.search]
+enable = true            # enables the search feature
+limit-results = 15
+
+[output.html.print]
+enable = true    # include support for printable output
