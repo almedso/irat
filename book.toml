@@ -1,0 +1,10 @@
+[book]
+authors = ["Volker Kempert"]
+language = "en"
+multilingual = false
+src = "src"
+title = "InfraRed Arbitrary Toolbox"
+
+[output.html]
+git-repository-url = "https://github.com/almedso/irat"
+git-repository-icon = "fa-github"

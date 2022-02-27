@@ -1,0 +1,27 @@
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  pages:
+    name: Publish on GitHub Pages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.4.0
+
+      - name: Install mdbook
+        uses: peaceiris/actions-mdbook@v1.1.14
+        with:
+          mdbook-version: "0.4.7"
+
+      - name: Generate book from markdown
+        run: |
+          mdbook build
+
+      - name: Publish HTML
+        uses: peaceiris/actions-gh-pages@v3.8.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./book/
