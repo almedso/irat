@@ -240,6 +240,70 @@ already available by chance, we go for that.</p>
 <p>Fits into an Euro Box 20cm x 30 cm x 7.5 cm for dust free storage</p>
 <p><img src="./images/euro-box-fit-in.jpg" alt="Euro box fit in" /></p>
 <h1 id="software"><a class="header" href="#software">Software</a></h1>
+<h2 id="reference-architecture"><a class="header" href="#reference-architecture">Reference Architecture</a></h2>
+<p>Simple (RTOS free) embedded iot devices can use a reference architecture like</p>
+<p><img src="./images/high-level-embedded-ref-arch.jpg" alt="Embedded Reference Architecture" /></p>
+<h3 id="app"><a class="header" href="#app">APP</a></h3>
+<ul>
+<li>The application the embedded device is running</li>
+<li>Unit that implements top level of control and behavior</li>
+<li>One application runs at a time</li>
+<li>An application requires certain hardware resource available</li>
+</ul>
+<h3 id="board"><a class="header" href="#board">Board</a></h3>
+<ul>
+<li>Maps the hardware resources provided by the board into the software</li>
+<li>Implements <a href="software.html#embedded-hal-interface">Embedded HAL Interface</a> for the specific board resources</li>
+</ul>
+<h3 id="embedded-hal-interface"><a class="header" href="#embedded-hal-interface">Embedded HAL Interface</a></h3>
+<ul>
+<li>General hardware abstraction for common types of peripherals</li>
+<li>like GPIO input, output, I2C, SPI, UART,  ADC, DAC, CAN, timer</li>
+<li>Is same for all processor architectures and boards</li>
+</ul>
+<h3 id="biz-logic-component"><a class="header" href="#biz-logic-component">Biz Logic Component</a></h3>
+<ul>
+<li>Provides an certain well-specified business logic</li>
+<li>encapsulated into a reusable component</li>
+<li>It has no dependencies to hardware/board since it is independent upon any specific hardware</li>
+<li>It might require certain hardware, to work with using the 
+<a href="software.html#embedded-hal-interface">Embedded HAL Interface</a> interface exclusively
+Thus, there is a dependency to the interface, but not to the board</li>
+<li>Business Logic Components might implement some business hardware communication protocol
+of a chip connected via a standard HAL peripheral, it could be called a driver</li>
+</ul>
+<h2 id="instanced-reference-architecture-in-rust"><a class="header" href="#instanced-reference-architecture-in-rust">Instanced Reference Architecture in Rust</a></h2>
+<p>[Draft]</p>
+<h3 id="processor-arch-specifics"><a class="header" href="#processor-arch-specifics">Processor Arch specifics</a></h3>
+<ul>
+<li>target command set</li>
+<li>Interrupt vector priority/ ISR handling (pending)</li>
+<li>critical sections</li>
+</ul>
+<h3 id="no-os-specifics"><a class="header" href="#no-os-specifics">No OS specifics</a></h3>
+<ul>
+<li>panic handler</li>
+<li>logging</li>
+</ul>
+<h3 id="peripherals"><a class="header" href="#peripherals">Peripherals</a></h3>
+<p>MCU Vendor (SVD file) -&gt; xyz-hal crate <a href="https://crates.io/crates/embedded-hal">embedded-hal</a> dependency</p>
+<p>Board</p>
+<p>Depending on the requirements to the IOT device </p>
+<h2 id="rust-environment-for-embedded"><a class="header" href="#rust-environment-for-embedded">Rust environment for embedded</a></h2>
+<ul>
+<li>embedded book</li>
+<li>defmt for logging</li>
+</ul>
+<h3 id="async-processing-async-await"><a class="header" href="#async-processing-async-await">Async processing/ async await</a></h3>
+<ul>
+<li>https://crates.io/crates/nb</li>
+</ul>
+<h2 id="hardware-binding"><a class="header" href="#hardware-binding">Hardware binding</a></h2>
+<ul>
+<li>embedded hal</li>
+<li>memory protection -- ownership, borrowing</li>
+</ul>
+<h2 id="general-model"><a class="header" href="#general-model">General Model</a></h2>
 <h1 id="test-double-application"><a class="header" href="#test-double-application">Test Double Application</a></h1>
 
                     </main>
