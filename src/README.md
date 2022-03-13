@@ -10,7 +10,7 @@ The whole project is splitted accross multiple repositories:
 
 * [This repository](https://almedso.github.io/irat/) -
   The documentation of the system (hardware and software)
-* [Firmware](https://github.com/almedso/nucleo-stmg071rb) -
+* [Firmware](https://github.com/almedso/nucleo-stm32g071rb) -
   Embedded firmware specifically to Nucleo-STM32G071RB board
 * [Manchester Code](https://github.com/almedso/manchester-code) -
   Rust library to support manchester code encoding/decoding
