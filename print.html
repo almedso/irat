@@ -178,7 +178,7 @@ software/firmware installed on the MCU. implemented in Rust.</p>
 <ul>
 <li><a href="https://almedso.github.io/irat/">This repository</a> -
 The documentation of the system (hardware and software)</li>
-<li><a href="https://github.com/almedso/nucleo-stmg071rb">Firmware</a> -
+<li><a href="https://github.com/almedso/nucleo-stm32g071rb">Firmware</a> -
 Embedded firmware specifically to Nucleo-STM32G071RB board</li>
 <li><a href="https://github.com/almedso/manchester-code">Manchester Code</a> -
 Rust library to support manchester code encoding/decoding</li>
@@ -192,6 +192,36 @@ repositories losely by a documentation as code</li>
 can be reused according to the CRP (common reuse principle)</li>
 </ul>
 <h1 id="motivation"><a class="header" href="#motivation">Motivation</a></h1>
+<p>Embedded software centric and Rust centric.</p>
+<h2 id="reference-architecture"><a class="header" href="#reference-architecture">Reference Architecture</a></h2>
+<p>The reference architecture can act as blue print,</p>
+<p>It encourages the software quality attributes:</p>
+<p><strong>No overhead</strong>: Only the amount of software that is really necessary</p>
+<ul>
+<li>Improved maintenance less code to maintain</li>
+<li>No runtime side effects</li>
+</ul>
+<p><strong>Open closed principle</strong>: </p>
+<p><strong>Common Reuse principle</strong>: Clean interfaces</p>
+<ul>
+<li>Embedded HAL api is universal since software mapping abstraction
+is possible for established/ standardized hardware peripherals like
+i2c, spi, uart, gpio</li>
+<li></li>
+</ul>
+<h2 id="sample-projects"><a class="header" href="#sample-projects">Sample projects</a></h2>
+<ul>
+<li>An embedded project is not just software but hardware, and physical
+interfaces to the environment.</li>
+<li>A close link needs to be maintained between between all those parts</li>
+<li>SysML is one very valid approach for industrial grade project</li>
+</ul>
+<p>For this kind or software centric playground documented sample projects
+are chosen to provide evidence for the software reference architecture
+applied.</p>
+<ul>
+<li></li>
+</ul>
 <h1 id="hardware"><a class="header" href="#hardware">Hardware</a></h1>
 <h2 id="requirements"><a class="header" href="#requirements">Requirements</a></h2>
 <ol>
@@ -240,7 +270,7 @@ already available by chance, we go for that.</p>
 <p>Fits into an Euro Box 20cm x 30 cm x 7.5 cm for dust free storage</p>
 <p><img src="./images/euro-box-fit-in.jpg" alt="Euro box fit in" /></p>
 <h1 id="software"><a class="header" href="#software">Software</a></h1>
-<h2 id="reference-architecture"><a class="header" href="#reference-architecture">Reference Architecture</a></h2>
+<h2 id="reference-architecture-1"><a class="header" href="#reference-architecture-1">Reference Architecture</a></h2>
 <p>Simple (RTOS free) embedded iot devices can use a reference architecture like</p>
 <p><img src="./images/high-level-embedded-ref-arch.jpg" alt="Embedded Reference Architecture" /></p>
 <h3 id="app"><a class="header" href="#app">APP</a></h3>
